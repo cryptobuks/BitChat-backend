@@ -1,0 +1,76 @@
+<!-- views/pages/inregistrare.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <% include ../partials/head %>
+</head>
+
+<body class="container">
+  <header>
+    <% include ../partials/header %>
+  </header>
+  <main>
+    <form method="post" action="">
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="inregistrare_user_name">Name</label>
+          <input type="text" class="form-control" name="inregistrare_user_nume" id="inregistrare_user_nume" placeholder="Nume" required>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-4">
+          <label for="inregistrare_user_email">Email</label>
+          <input type="text" class="form-control" name="inregistrare_user_email" id="inregistrare_user_email" placeholder="test@gmail.com" required>
+        </div>
+        <div class="form-group col-md-4">
+          <label for="inregistrare_user_phone">Phone</label>
+          <input type="text" class="form-control" name="inregistrare_user_phone" id="inregistrare_user_phone" placeholder="+40123456" required>
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Salveaza</button>
+    </form>
+
+    <div class="row">
+      <div class="col-sm-4">
+        <h4>Instructori</h4>
+        <% instructori.forEach(function(instructor){ %>
+          <div class="well">
+            <h3>
+              <%= instructor.nume %>
+            </h3>
+            <h4>Varsta:
+              <%= instructor.varsta %>
+            </h4>
+            <h4>Adresa:
+              <%=instructor.adresa%>
+            </h4>
+          </div>
+          <%})%>
+      </div>
+
+      <div class="col-sm-4">
+        <h4>Copii</h4>
+        <% copii.forEach(function(copil){ %>
+          <div class="well">
+            <h3>
+              <%= copil.nume %>
+            </h3>
+            <h4>Varsta:
+              <%= copil.varsta %>
+            </h4>
+            <h4>Adresa:
+              <%=copil.adresa%>
+            </h4>
+          </div>
+          <%})%>
+      </div>
+  </main>
+
+  <footer>
+    <% include ../partials/footer %>
+  </footer>
+</body>
+
+</html>
