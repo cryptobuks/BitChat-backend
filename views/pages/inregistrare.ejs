@@ -13,9 +13,9 @@
   <main>
     <form method="post" action="">
       <div class="form-row">
-        <div class="form-group col-md-6">
+        <div class="form-group col-md-4">
           <label for="inregistrare_user_name">Name</label>
-          <input type="text" class="form-control" name="inregistrare_user_nume" id="inregistrare_user_nume" placeholder="Nume" required>
+          <input type="text" class="form-control" name="inregistrare_user_name" id="inregistrare_user_name" placeholder="Nume" required>
         </div>
       </div>
       <div class="form-row">
@@ -34,34 +34,17 @@
 
     <div class="row">
       <div class="col-sm-4">
-        <h4>Instructori</h4>
-        <% instructori.forEach(function(instructor){ %>
+        <h4>Useri</h4>
+        <% useri.forEach(function(user){ %>
           <div class="well">
             <h3>
-              <%= instructor.nume %>
+              <%= user.nume %>
             </h3>
-            <h4>Varsta:
-              <%= instructor.varsta %>
+            <h4>Email:
+              <%= user.email %>
             </h4>
-            <h4>Adresa:
-              <%=instructor.adresa%>
-            </h4>
-          </div>
-          <%})%>
-      </div>
-
-      <div class="col-sm-4">
-        <h4>Copii</h4>
-        <% copii.forEach(function(copil){ %>
-          <div class="well">
-            <h3>
-              <%= copil.nume %>
-            </h3>
-            <h4>Varsta:
-              <%= copil.varsta %>
-            </h4>
-            <h4>Adresa:
-              <%=copil.adresa%>
+            <h4>Telefon:
+              <%=user.phone%>
             </h4>
           </div>
           <%})%>

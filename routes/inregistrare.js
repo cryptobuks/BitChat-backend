@@ -7,11 +7,11 @@ router.get('/', getUseri, renderInregistrare);
 // POST user
 router.post('/', addUser, renderInregistrare);
 
-//GET mongoDb Instructori
+//GET useri
 function getUseri(req, res, next) {
     req.db.collection('useri').find().toArray(function (err, results) {
         console.log(results);
-        req.instructori = results;
+        req.useri = results;
         return next();
     });
 }
@@ -19,7 +19,7 @@ function getUseri(req, res, next) {
 //POST user
 function addUser(req, res, next) {
     var user = {
-        name: req.body.inregistrare_user_nume,
+        name: req.body.inregistrare_user_name,
         email: req.body.inregistrare_user_email,
         phone: req.body.inregistrare_user_phone
     }
@@ -33,8 +33,7 @@ function addUser(req, res, next) {
 
 function renderInregistrare(req, res) {
     res.render('pages/inregistrare', {
-        instructori: req.instructori,
-        copii: req.copii
+        useri: req.useri
     })
 }
 module.exports = router;

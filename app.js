@@ -3,7 +3,6 @@ const app = express();
 const path = require('path');
 const bodyParser = require('body-parser');
 const logger = require('morgan');
-const neo4j = require('neo4j-driver').v1;
 const port = process.env.PORT || 5000;
 
 //Setup View Engine

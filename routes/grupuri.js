@@ -8,7 +8,7 @@ router.post('/', addGrup, renderGrupuri);
 function getGrupuri(req, res, next) {
     req.db.collection('grupuri').find().toArray(function (err, results) {
         console.log(results);
-        req.cercuri = results;
+        req.grupuri = results;
         return next();
     });
 }
@@ -16,11 +16,7 @@ function getGrupuri(req, res, next) {
 // POST grup
 function addGrup(req, res, next) {
     var grup = {
-        nume: req.body.cerc_nume,
-        pret: req.body.cerc_pret,
-        locuri: req.body.cerc_locuri,
-        categorie: req.body.cerc_categorie,
-        descriere: req.body.cerc_descriere
+        name: req.body.grup_name
     }
     req.db.collection('grupuri').save(grup, (err, result) => {
         if (err) return console.log(err)
@@ -31,7 +27,7 @@ function addGrup(req, res, next) {
 
 function renderGrupuri(req, res) {
     res.render('pages/grupuri', {
-        cercuri: req.grupuri
+        grupuri: req.grupuri
     })
 }
 module.exports = router;
